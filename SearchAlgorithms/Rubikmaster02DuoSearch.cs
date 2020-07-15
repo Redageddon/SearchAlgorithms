@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SearchAlgorithms
 {
@@ -34,6 +35,10 @@ namespace SearchAlgorithms
                 if (k == matchLength - 1)
                 {
                     matchLocations.Add(i);
+                }
+                else
+                {
+                    i += matchLength;
                 }
             }
 
