@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace SearchAlgorithms
+namespace SearchAlgorithms.Algorithms
 {
-    public static class KnuthMorrisPratt
+    public class KnuthMorrisPratt : ISearchAlgorithm
     {
-        public static List<int> KmpMultiSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> search)
+        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> search)
         {
             List<int> matchLocations = new List<int>();
             int       j              = 0;
@@ -44,7 +44,7 @@ namespace SearchAlgorithms
             return matchLocations;
         }
 
-        public static int KmpSingleSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> search)
+        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> search)
         {
             int j = 0;
 

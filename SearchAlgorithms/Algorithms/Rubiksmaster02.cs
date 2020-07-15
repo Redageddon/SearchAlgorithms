@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace SearchAlgorithms
+namespace SearchAlgorithms.Algorithms
 {
-    public static class Rubikmaster02
+    public class Rubikmaster02 : ISearchAlgorithm
     {
-        public static List<int> RmMultiDuoSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> match)
+        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match)
         {
             List<int> matchLocations = new List<int>();
             int       inputLength    = input.Count - 1;
@@ -51,7 +51,7 @@ namespace SearchAlgorithms
             return matchLocations;
         }
 
-        public static int RmSingleDuoSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> match)
+        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match)
         {
             int inputLength = input.Count - 1;
             int matchLength = match.Count - 1;
