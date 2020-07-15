@@ -4,13 +4,13 @@ namespace SearchAlgorithms.Algorithms
 {
     public class Rubikmaster02 : ISearchAlgorithm
     {
-        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match)
+        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count)
         {
             List<int> matchLocations = new List<int>();
-            int       inputLength    = input.Count - 1;
+            int       inputLength    = count > input.Count - 1 ? input.Count - 1 : count;
             int       matchLength    = match.Count - 1;
 
-            for (int i = 0; i < inputLength; i++)
+            for (int i = start; i < inputLength; i++)
             {
                 if (i + matchLength > inputLength)
                 {
@@ -51,12 +51,12 @@ namespace SearchAlgorithms.Algorithms
             return matchLocations;
         }
 
-        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match)
+        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count)
         {
-            int inputLength = input.Count - 1;
+            int inputLength = count > input.Count - 1 ? input.Count - 1 : count;
             int matchLength = match.Count - 1;
 
-            for (int i = 0; i < inputLength; i++)
+            for (int i = start; i < inputLength; i++)
             {
                 if (i + matchLength > inputLength)
                 {
