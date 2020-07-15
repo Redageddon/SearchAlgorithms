@@ -68,16 +68,17 @@ namespace SearchAlgorithms.Algorithms
                     continue;
                 }
 
-                int k = 0;
-                for (; k < matchLength - 1; k++)
+                bool naturalExit = true;
+                for (int k = 0; k < matchLength - 1; k++)
                 {
                     if (!input[k + i + 1].Equals(match[k + 1]))
                     {
+                        naturalExit = false;
                         break;
                     }
                 }
 
-                if (k == matchLength - 1)
+                if (naturalExit)
                 {
                     return i;
                 }
