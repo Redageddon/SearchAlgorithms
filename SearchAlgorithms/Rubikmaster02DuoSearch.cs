@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SearchAlgorithms
 {
     public static class Rubikmaster02
     {
-        public static int[] RmMultiDuoSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> match)
+        public static List<int> RmMultiDuoSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> match)
         {
             List<int> matchLocations = new List<int>();
             int       inputLength    = input.Count - 1;
@@ -23,16 +22,17 @@ namespace SearchAlgorithms
                     continue;
                 }
 
-                int k = 0;
-                for (; k < matchLength - 1; k++)
+                bool naturalExit = true;
+                for (int k = 0; k < matchLength - 1; k++)
                 {
                     if (!input[k + i + 1].Equals(match[k + 1]))
                     {
+                        naturalExit = false;
                         break;
                     }
                 }
 
-                if (k == matchLength - 1)
+                if (naturalExit)
                 {
                     matchLocations.Add(i);
                 }
@@ -42,7 +42,13 @@ namespace SearchAlgorithms
                 }
             }
 
-            return matchLocations.Count > 0 ? matchLocations.ToArray() : new[] {-1};
+            if (matchLocations.Count > 0)
+            {
+                return matchLocations;
+            }
+
+            matchLocations.Add(-1);
+            return matchLocations;
         }
 
         public static int RmSingleDuoSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> match)
