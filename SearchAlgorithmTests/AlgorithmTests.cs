@@ -7,7 +7,7 @@ namespace SearchAlgorithmTests
 {
     public class Tests
     {
-        private readonly ISearchAlgorithm rubiksmaster02 = new Rubikmaster02();
+        private readonly ISearchAlgorithm rubiksmaster02 = new Rubiksmaster02();
         private readonly ISearchAlgorithm knuthMorrisPratt = new KnuthMorrisPratt();
         
         private readonly List<int> master = new List<int>
@@ -18,7 +18,7 @@ namespace SearchAlgorithmTests
 
         private readonly int[] search  = {247, 870, 37};
         private readonly int[] search2 = {247, 870, 37, 14};
-        
+      
         [Test]
         public void RubikMultiFirstTest1()
         {

@@ -2,7 +2,7 @@
 
 namespace SearchAlgorithms.Algorithms
 {
-    public class Rubikmaster02 : ISearchAlgorithm
+    public class Rubiksmaster02 : ISearchAlgorithm
     {
         public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count)
         {
