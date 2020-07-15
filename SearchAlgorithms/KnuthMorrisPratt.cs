@@ -4,7 +4,7 @@ namespace SearchAlgorithms
 {
     public static class KnuthMorrisPratt
     {
-        public static int[] KmpMultiSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> search)
+        public static List<int> KmpMultiSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> search)
         {
             List<int> matchLocations = new List<int>();
             int       j              = 0;
@@ -35,7 +35,13 @@ namespace SearchAlgorithms
                 }
             }
 
-            return matchLocations.Count > 0 ? matchLocations.ToArray() : new[] {-1};
+            if (matchLocations.Count > 0)
+            {
+                return matchLocations;
+            }
+
+            matchLocations.Add(-1);
+            return matchLocations;
         }
 
         public static int KmpSingleSearch<T>(this IReadOnlyList<T> input, IReadOnlyList<T> search)
