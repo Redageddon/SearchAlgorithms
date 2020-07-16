@@ -18,7 +18,8 @@ namespace SearchAlgorithmTests
 
         private readonly int[] search  = {247, 870, 37};
         private readonly int[] search2 = {247, 870, 37, 14};
-      
+        
+
         [Test]
         public void RubikMultiFirstTest1()
         {
