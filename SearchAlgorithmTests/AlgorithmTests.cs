@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using SearchAlgorithms;
 using SearchAlgorithms.Algorithms;
+using X10D;
 
 namespace SearchAlgorithmTests
 {
@@ -18,8 +20,15 @@ namespace SearchAlgorithmTests
 
         private readonly int[] search  = {247, 870, 37};
         private readonly int[] search2 = {247, 870, 37, 14};
-        
 
+        [Test]
+        public void RubikAllTest()
+        {
+            int[] nums1 = {1, 2, 3};
+            int[] nums2 = {1, 2, 3};
+            Assert.AreEqual(nums1.MultiSearch(nums2, this.rubiksmaster02)[0], 0);
+        }
+        
         [Test]
         public void RubikMultiFirstTest1()
         {

@@ -10,29 +10,30 @@ namespace SearchAlgorithms.Algorithms
             int       inputLength    = count > input.Count - 1 ? input.Count - 1 : count;
             int       matchLength    = match.Count - 1;
 
-            for (int i = start; i < inputLength; i++)
+            if (inputLength == 0 || matchLength == 0 || matchLength > inputLength || count == 0)
             {
-                if (i + matchLength > inputLength)
-                {
-                    break;
-                }
-
+                matchLocations.Add(-1);
+                return matchLocations;
+            }
+            
+            for (int i = start; i < inputLength - matchLength + 1; i++)
+            {
                 if (!input[i].Equals(match[0]) || !input[i + matchLength].Equals(match[matchLength]))
                 {
                     continue;
                 }
 
-                bool naturalExit = true;
+                bool sequenceEqual = true;
                 for (int k = 0; k < matchLength - 1; k++)
                 {
                     if (!input[k + i + 1].Equals(match[k + 1]))
                     {
-                        naturalExit = false;
+                        sequenceEqual = false;
                         break;
                     }
                 }
 
-                if (naturalExit)
+                if (sequenceEqual)
                 {
                     matchLocations.Add(i);
                 }
@@ -55,14 +56,14 @@ namespace SearchAlgorithms.Algorithms
         {
             int inputLength = count > input.Count - 1 ? input.Count - 1 : count;
             int matchLength = match.Count - 1;
-
-            for (int i = start; i < inputLength; i++)
+            
+            if (inputLength == 0 || matchLength == 0 || matchLength > inputLength || count == 0)
             {
-                if (i + matchLength > inputLength)
-                {
-                    break;
-                }
+                return -1;
+            }
 
+            for (int i = start; i < inputLength - matchLength + 1; i++)
+            {
                 if (!input[i].Equals(match[0]) || !input[i + matchLength].Equals(match[matchLength]))
                 {
                     continue;
