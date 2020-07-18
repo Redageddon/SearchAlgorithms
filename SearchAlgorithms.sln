@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithms", "SearchA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithmTests", "SearchAlgorithmTests\SearchAlgorithmTests.csproj", "{1DA833BB-B677-4BBC-B7C6-B83E1CD1851A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithmBenchmarks", "SearchAlgorithmBenchmarks\SearchAlgorithmBenchmarks.csproj", "{1A811464-CA35-4CB6-8CAE-22336DBE691B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1DA833BB-B677-4BBC-B7C6-B83E1CD1851A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA833BB-B677-4BBC-B7C6-B83E1CD1851A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA833BB-B677-4BBC-B7C6-B83E1CD1851A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A811464-CA35-4CB6-8CAE-22336DBE691B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A811464-CA35-4CB6-8CAE-22336DBE691B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A811464-CA35-4CB6-8CAE-22336DBE691B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A811464-CA35-4CB6-8CAE-22336DBE691B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SearchAlgorithms.Algorithms
 {
     public class Rubiksmaster02 : ISearchAlgorithm
     {
-        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count)
+        public static Rubiksmaster02 Default { get; } = new Rubiksmaster02();
+
+        private Rubiksmaster02()
+        {
+        }
+
+        public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count) 
+            where T : IEquatable<T>
         {
             List<int> matchLocations = new List<int>();
             int       inputLength    = count > input.Count - 1 ? input.Count - 1 : count;
@@ -52,7 +60,8 @@ namespace SearchAlgorithms.Algorithms
             return matchLocations;
         }
 
-        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count)
+        public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> match, int start, int count) 
+            where T : IEquatable<T>
         {
             int inputLength = count > input.Count - 1 ? input.Count - 1 : count;
             int matchLength = match.Count - 1;

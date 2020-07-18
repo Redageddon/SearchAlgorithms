@@ -5,7 +5,14 @@ namespace SearchAlgorithms.Algorithms
 {
     public class KnuthMorrisPratt : ISearchAlgorithm
     {
+        public static KnuthMorrisPratt Default { get; } = new KnuthMorrisPratt();
+
+        private KnuthMorrisPratt()
+        {
+        }
+
         public List<int> MultiSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> search, int start, int count)
+            where T : IEquatable<T>
         {
             List<int> matchLocations = new List<int>();
             int inputLength = count > input.Count - 1 ? input.Count - 1 : count;
@@ -47,6 +54,7 @@ namespace SearchAlgorithms.Algorithms
         }
 
         public int SingleSearch<T>(IReadOnlyList<T> input, IReadOnlyList<T> search, int start, int count)
+            where T : IEquatable<T>
         {
             int j = 0;
             int inputLength = count > input.Count - 1 ? input.Count - 1 : count;
